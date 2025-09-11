@@ -27,7 +27,7 @@ export default function Header() {
           Elowen
         </Link>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-5">
           <button>
             <Link to="/login">
               <UserRound />

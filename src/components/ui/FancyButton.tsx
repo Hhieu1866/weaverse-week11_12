@@ -7,6 +7,8 @@ interface FancyButtonProps {
   hoverBgColor?: string; // lớp bg của overlay khi hover
   textSize?: string;
   padding?: string; // ví dụ: "px-7 py-2"
+  textColor?: string; // màu chữ trạng thái bình thường
+  hoverTextColor?: string; // màu chữ khi hover
   className?: string;
   onClick?: () => void;
   type?: "button" | "submit" | "reset";
@@ -18,6 +20,8 @@ const FancyButton = ({
   hoverBgColor = "bg-black",
   textSize = "text-xs",
   padding = "px-7 py-3",
+  textColor = "text-black",
+  hoverTextColor = "text-primary",
   className,
   onClick,
   type = "button",
@@ -27,7 +31,7 @@ const FancyButton = ({
       type={type}
       onClick={onClick}
       className={cn(
-        "group relative inline-flex items-center justify-center overflow-hidden rounded-full border-0 font-medium tracking-widest",
+        "group relative inline-flex items-center justify-center overflow-hidden rounded-full border-0 font-medium uppercase tracking-widest",
         bgColor,
         padding,
         className,
@@ -35,7 +39,8 @@ const FancyButton = ({
     >
       <div
         className={cn(
-          "inline-flex items-center justify-center text-neutral-950 transition duration-700 group-hover:-translate-y-[150%]",
+          "inline-flex items-center justify-center transition duration-700 group-hover:-translate-y-[150%]",
+          textColor,
           textSize,
         )}
       >
@@ -44,7 +49,7 @@ const FancyButton = ({
 
       <div
         className={cn(
-          "absolute inset-0 inline-flex h-full w-full translate-y-full items-center justify-center text-neutral-50 transition duration-700 group-hover:translate-y-0",
+          "absolute inset-0 inline-flex h-full w-full translate-y-full items-center justify-center transition duration-700 group-hover:translate-y-0",
         )}
       >
         <span
@@ -54,7 +59,7 @@ const FancyButton = ({
           )}
         />
         {/* label hover */}
-        <span className={cn("z-10", textSize)}>{children}</span>
+        <span className={cn("z-10", hoverTextColor, textSize)}>{children}</span>
       </div>
     </button>
   );

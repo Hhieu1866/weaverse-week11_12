@@ -1,12 +1,14 @@
+import Feedbacks from "@/components/Feedbacks";
 import { IconOne, IconThree, IconTwo } from "@/components/icons";
 import OurFavourites from "@/components/OurFavourites";
 import SubscribeSection from "@/components/SubscribeSection";
 import FancyButton from "@/components/ui/FancyButton";
+import { Separator } from "@/components/ui/separator";
 
 export default function Home() {
   return (
     <div className="">
-      <div className="relative h-screen w-full overflow-hidden">
+      <section className="relative h-screen w-full overflow-hidden">
         {/* Video background */}
         <video
           className="absolute left-0 top-0 h-full w-full object-cover"
@@ -40,9 +42,9 @@ export default function Home() {
             SHOP NOW
           </FancyButton>
         </div>
-      </div>
+      </section>
 
-      <div className="bg-secondary">
+      <section className="bg-secondary">
         <div className="container mx-auto flex items-start gap-10 px-20 py-10">
           <div className="flex items-start gap-2">
             <div className="">
@@ -89,13 +91,196 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Subscribe section */}
       <SubscribeSection />
 
       {/* Our favourites */}
       <OurFavourites />
+
+      <Feedbacks />
+
+      <section className="relative h-screen w-full">
+        {/* Ảnh nền */}
+        <img
+          src="/about-quote-image.webp"
+          alt="about-quote-image"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+
+        <div className="absolute inset-0 bg-black/30"></div>
+
+        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+          <p className="max-w-6xl font-custom text-4xl font-bold tracking-wide text-primary md:text-7xl">
+            WatchHouse is a slow take on instant gratification. Thoughtful
+            pours, rare flavour profiles and paraphernalia for your daily cup.
+          </p>
+
+          <FancyButton
+            bgColor="bg-transparent"
+            hoverBgColor="bg-primary"
+            textColor="text-primary"
+            hoverTextColor="text-black"
+            className="mt-14 border border-primary"
+          >
+            Our story
+          </FancyButton>
+        </div>
+      </section>
+
+      {/* Visit us */}
+      <section className="bg-primary">
+        <div className="container mx-auto flex gap-10 px-20 py-36">
+          <div className="w-2/3">
+            <img
+              src="/Visit_us_homepage.webp"
+              alt="Visit_us_homepage"
+              className="rounded-3xl"
+            />
+          </div>
+
+          <div className="flex w-1/3 flex-col justify-center">
+            <div className="flex flex-col items-start gap-5">
+              <h1 className="font-custom text-7xl font-bold">Visit us</h1>
+              <p>
+                25 square metres on London’s famous Bermondsey Street was all it
+                took to conceive WatchHouse and lay the foundations of
+                everything to come.
+              </p>
+              <FancyButton
+                bgColor="bg-transparent"
+                textColor="text-black"
+                hoverTextColor="text-primary"
+                className="border border-black"
+              >
+                Our locations
+              </FancyButton>
+            </div>
+            <div className="mt-20">
+              <img src="/bermo.webp" alt="bermo" className="rounded-3xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* The journal */}
+      <section className="bg-secondary">
+        <div className="container mx-auto flex flex-col px-20 py-32">
+          <div className="flex items-start justify-between gap-6">
+            <div className="flex-1">
+              <h1 className="font-custom text-7xl font-bold">The journal.</h1>
+            </div>
+            <div className="flex-1">
+              <p className="font-medium">
+                25 square metres on London’s famous Bermondsey Street was all it
+                took to conceive WatchHouse and lay the foundations of
+                everything to come. Historically a shelter for men guarding the
+                graveyard of St Mary Magdalen’s Church.
+              </p>
+              <FancyButton
+                bgColor="bg-transparent"
+                textColor="text-black"
+                hoverTextColor="text-primary"
+                className="mt-5 border border-black"
+              >
+                Explore journal
+              </FancyButton>
+            </div>
+          </div>
+
+          <div className="mt-16 flex gap-6">
+            <div className="relative w-full flex-1 overflow-hidden rounded-2xl">
+              <img
+                src="/NomadBlog.webp"
+                alt="NomadBlog"
+                className="h-auto w-full object-cover"
+              />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <p className="text-center font-custom text-6xl font-bold text-secondary drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+                  WatchHouse x <br />
+                  NOMAD.
+                </p>
+              </div>
+            </div>
+            <div className="flex-1">
+              <div className="flex gap-6">
+                <div className="flex flex-1 flex-col justify-between">
+                  <div className="w-full">
+                    <div className="space-y-1">
+                      <Separator className="bg-black" />
+                      <p className="font-bold">Spotlight.</p>
+                    </div>
+                  </div>
+                  <div>
+                    <Separator className="bg-gray-400" />
+                    <div className="space-y-4">
+                      <p className="font-custom text-xl font-bold">
+                        Introducing: matcha.
+                      </p>
+                      <p>
+                        Three drinks. Two matchas. No shortcuts. At WatchHouse,
+                        every ingredient we serve is carefully chosen, not just
+                        for what ...
+                      </p>
+                      <button
+                        role="link"
+                        className="after:ease-[cubic-bezier(0.65_0.05_0.36_1)] relative font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:w-full after:origin-bottom after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 hover:after:origin-bottom hover:after:scale-x-100"
+                      >
+                        Read more.
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <img
+                    src="/MatchaInHouse.webp"
+                    alt="MatchaInHouse"
+                    className="rounded-2xl"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-6 flex gap-6">
+                <div className="flex-1">
+                  <img
+                    src="/Colombian_Vista.webp"
+                    alt="Colombian_Vista"
+                    className="rounded-2xl"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col justify-between">
+                  <div className="w-full">
+                    <div className="space-y-1">
+                      <Separator className="bg-black" />
+                      <p className="font-bold">Spotlight.</p>
+                    </div>
+                  </div>
+                  <div>
+                    <Separator className="bg-gray-400" />
+                    <div className="space-y-4">
+                      <p className="font-custom text-xl font-bold">
+                        Origin: Colombia.
+                      </p>
+                      <p>
+                        Think of spectacular of coffee, and Colombia is the
+                        origin that comes to mind. With its dramatic landscapes,
+                        diverse mi...
+                      </p>
+                      <button
+                        role="link"
+                        className="after:ease-[cubic-bezier(0.65_0.05_0.36_1)] relative font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:w-full after:origin-bottom after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 hover:after:origin-bottom hover:after:scale-x-100"
+                      >
+                        Read more.
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

@@ -27,11 +27,33 @@ const favourites = [
     alt: "MonowareMug",
   },
   {
-    name: "1829 Espresso",
-    description: "Our seasonal espresso for milk.",
+    name: "Mizu Matcha.",
+    description: "Our matcha designed for usucha tea preparation.",
+    price: "£27.00",
+    image: "/MizuMiruku.webp",
+    alt: "MizuMiruku",
+  },
+  {
+    name: "Miruku Matcha.",
+    description: "Our matcha designed for milk​.",
+    price: "£55.00",
+    image: "/MatchaMiruku.webp",
+    alt: "MatchaMiruku",
+  },
+  {
+    name: "WatchHouse Cupping Spoon.",
+    description:
+      " A humble yet essential piece of equipment for those who appreciate the finer details. ",
     price: "£12.00",
-    image: "/1829-espresso.webp",
-    alt: "1829 Espresso",
+    image: "/WHCUPPINGSPOON.webp",
+    alt: "WHCUPPINGSPOON",
+  },
+  {
+    name: "1829 Espresso 1kg Coffee Beans",
+    description: "More of our bestselling coffee with a saving for you.",
+    price: "£60.00",
+    image: "/Bundle_June_2024.webp",
+    alt: "Bundle_June_2024",
   },
 ];
 
@@ -42,18 +64,27 @@ const OurFavourites = () => {
     const el = scrollerRef.current;
     if (!el) return;
 
-    // Get container width and calculate card width for 3-column grid
-    const containerWidth = el.offsetWidth;
-    const gap = 32; // 8 * 4px (gap-8 in Tailwind)
-    const cardWidth = (containerWidth - gap * 2) / 3; // 3 cards with 2 gaps
+    const scrollAmount = el.firstElementChild?.clientWidth || 0;
 
-    // Scroll by exactly one card width + gap
-    const scrollAmount = cardWidth + gap;
-
-    el.scrollBy({
-      left: direction === "next" ? scrollAmount : -scrollAmount,
-      behavior: "smooth",
-    });
+    if (direction === "next") {
+      // Check if we are near the end of the scroll
+      if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 1) {
+        // If at the end, loop back to the start
+        el.scrollTo({ left: 0, behavior: "smooth" });
+      } else {
+        // Otherwise, scroll by one card width
+        el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      }
+    } else {
+      // Check if we are at the beginning
+      if (el.scrollLeft === 0) {
+        // If at the start, loop to the end
+        el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
+      } else {
+        // Otherwise, scroll back by one card width
+        el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+      }
+    }
   };
 
   return (
