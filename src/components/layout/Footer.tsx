@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
 
@@ -21,16 +22,24 @@ export default function Footer() {
                 Become a subscriber and enjoy 10% off your first order plus
                 access to the hottest coffee beans while they’re still cooling.
               </p>
-              <div>
+              <div className="relative">
                 <Input
-                  className="h-14 rounded-full pl-5 placeholder:font-medium placeholder:text-primary"
+                  className="h-14 rounded-full pl-5 pr-16 placeholder:font-medium placeholder:text-primary"
                   placeholder="Enter your email address."
                 />
+                <button
+                  type="button"
+                  aria-label="Subscribe"
+                  className="absolute right-2 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-primary bg-secondary text-black transition-transform hover:translate-x-0.5"
+                >
+                  <ArrowRight />
+                </button>
               </div>
             </div>
           </div>
 
           <Separator className="my-20 bg-primary" />
+
           <div>
             <div className="flex items-start justify-between">
               {/* Left: navigation columns */}
