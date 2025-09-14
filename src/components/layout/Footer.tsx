@@ -4,10 +4,10 @@ import { Separator } from "../ui/separator";
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary">
+    <footer className="bg-second">
       <div className="rounded-t-2xl bg-black">
         <div className="container mx-auto px-20 py-14">
-          <div className="flex items-center gap-28 text-primary">
+          <div className="flex items-center gap-28 text-main">
             <div className="max-w-[688px]">
               <p className="font-custom text-6xl font-bold">
                 Proudly originating in a former 19th century watch house on
@@ -24,13 +24,13 @@ export default function Footer() {
               </p>
               <div className="relative">
                 <Input
-                  className="h-14 rounded-full pl-5 pr-16 placeholder:font-medium placeholder:text-primary"
+                  className="h-14 rounded-full pl-5 pr-16 placeholder:font-medium placeholder:text-main"
                   placeholder="Enter your email address."
                 />
                 <button
                   type="button"
                   aria-label="Subscribe"
-                  className="absolute right-2 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-primary bg-secondary text-black transition-transform hover:translate-x-0.5"
+                  className="absolute right-2 top-1/2 flex size-9 -translate-y-1/2 items-center justify-center rounded-full border border-main bg-second text-black transition-transform hover:translate-x-0.5"
                 >
                   <ArrowRight />
                 </button>
@@ -38,12 +38,12 @@ export default function Footer() {
             </div>
           </div>
 
-          <Separator className="my-20 bg-primary" />
+          <Separator className="my-20 bg-main" />
 
           <div>
             <div className="flex items-start justify-between">
               {/* Left: navigation columns */}
-              <div className="grid grid-cols-4 gap-14 tracking-wide text-primary">
+              <div className="grid grid-cols-4 gap-14 tracking-wide text-main">
                 <div>
                   <p className="mb-4 font-bold">Shop.</p>
                   <ul className="space-y-3 text-xs uppercase tracking-widest">
@@ -86,9 +86,7 @@ export default function Footer() {
 
               {/* Right: payment methods */}
               <div className="flex flex-col items-end gap-4">
-                <p className="text-sm font-bold text-primary">
-                  Payment Methods.
-                </p>
+                <p className="text-sm font-bold text-main">Payment Methods.</p>
                 <div className="flex items-center gap-6">
                   <img
                     src="/MasterCard.webp"

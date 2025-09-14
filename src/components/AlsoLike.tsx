@@ -1,12 +1,63 @@
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import FancyButton from "./ui/FancyButton";
-import { PRODUCTS } from "@/data/products";
-import { Link } from "react-router-dom";
 
-const favourites = PRODUCTS.filter((p) => p.isFavourite);
+const favourites = [
+  {
+    name: "Pods | Mixed Set",
+    description: "A journey across Rituals, Ventures and Horizons",
+    price: "From £21.00",
+    image: "/Mixed_Pods.webp",
+    alt: "Mixed_Pods",
+  },
+  {
+    name: "Kinto Travel Tumbler.",
+    description:
+      "Double-walled stainless steel vacuum flask, perfect for hot or cold brews (up to 6 hours)",
+    price: "From £35.00",
+    image: "/KINTOTUMBLER.webp",
+    alt: "KINTOTUMBLER",
+  },
+  {
+    name: "WatchHouse x Monoware Mug.",
+    description:
+      "Enhance your daily coffee ritual with this everyday mug, a ceramic piece conceived with care.",
+    price: "From £22.00",
+    image: "/MonowareMug.webp",
+    alt: "MonowareMug",
+  },
+  {
+    name: "Mizu Matcha.",
+    description: "Our matcha designed for usucha tea preparation.",
+    price: "£27.00",
+    image: "/MizuMiruku.webp",
+    alt: "MizuMiruku",
+  },
+  {
+    name: "Miruku Matcha.",
+    description: "Our matcha designed for milk​.",
+    price: "£55.00",
+    image: "/MatchaMiruku.webp",
+    alt: "MatchaMiruku",
+  },
+  {
+    name: "WatchHouse Cupping Spoon.",
+    description:
+      " A humble yet essential piece of equipment for those who appreciate the finer details. ",
+    price: "£12.00",
+    image: "/WHCUPPINGSPOON.webp",
+    alt: "WHCUPPINGSPOON",
+  },
+  {
+    name: "1829 Espresso 1kg Coffee Beans",
+    description: "More of our bestselling coffee with a saving for you.",
+    price: "£60.00",
+    image: "/Bundle_June_2024.webp",
+    alt: "Bundle_June_2024",
+  },
+];
 
-const OurFavourites = () => {
+const AlsoLike = () => {
   const scrollerRef = useRef<HTMLDivElement | null>(null);
 
   const scroll = (direction: "prev" | "next") => {
@@ -40,9 +91,11 @@ const OurFavourites = () => {
     <div className="bg-main">
       <div className="container mx-auto px-20 py-32">
         <div className="flex items-center justify-between">
-          <h1 className="font-custom text-6xl font-bold">Our favourites.</h1>
+          <h1 className="font-custom text-6xl font-bold">
+            You may also like...
+          </h1>
           <FancyButton className="border border-black bg-transparent">
-            SHOP NOW
+            SHOP ALL
           </FancyButton>
         </div>
 
@@ -55,8 +108,7 @@ const OurFavourites = () => {
             }}
           >
             {favourites.map((item, index) => (
-              <Link
-                to={`/products/${item.id}`}
+              <div
                 key={index}
                 className="flex-shrink-0 text-center"
                 style={{
@@ -64,13 +116,15 @@ const OurFavourites = () => {
                   scrollSnapAlign: "start",
                 }}
               >
-                <img src={item.img} alt={item.alt} />
+                <img src={item.image} alt={item.alt} />
                 <div className="mt-4 flex flex-col gap-2 p-4">
                   <p className="font-custom text-lg font-bold">{item.name}</p>
-                  <span className="text-sm leading-relaxed">{item.desc}</span>
+                  <span className="text-sm leading-relaxed">
+                    {item.description}
+                  </span>
                   <p className="font-semibold">{item.price}</p>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -98,4 +152,4 @@ const OurFavourites = () => {
   );
 };
 
-export default OurFavourites;
+export default AlsoLike;

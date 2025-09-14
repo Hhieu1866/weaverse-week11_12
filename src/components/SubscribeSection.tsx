@@ -92,7 +92,7 @@ const SubscribeSection = () => {
   };
 
   return (
-    <div className="bg-primary">
+    <div className="bg-main">
       <div className="container mx-auto flex gap-6 px-20 py-32">
         {/* Left side - static content */}
         <div className="flex w-1/4 flex-col justify-between pt-28">

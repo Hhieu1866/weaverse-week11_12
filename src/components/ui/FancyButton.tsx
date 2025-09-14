@@ -21,7 +21,7 @@ const FancyButton = ({
   textSize = "text-xs",
   padding = "px-7 py-3",
   textColor = "text-black",
-  hoverTextColor = "text-primary",
+  hoverTextColor = "text-main",
   className,
   onClick,
   type = "button",

@@ -1,47 +1,15 @@
 import FancyButton from "@/components/ui/FancyButton";
 import FancyHoverText from "@/components/ui/FancyHoverText";
 import { Separator } from "@/components/ui/separator";
-
-type Product = {
-  id: string;
-  img: string;
-  alt: string;
-  name: string;
-  desc: string;
-  price: string;
-};
-
-const PRODUCTS: Product[] = [
-  {
-    id: "1829-1",
-    img: "/1829.webp",
-    alt: "1829",
-    name: "1829 Espresso.",
-    desc: "Our 1829 Espresso is our seasonal espresso for milk. We source, roast and brew this coffee specifically for an exceptional milk based experience.",
-    price: "£12.00",
-  },
-  {
-    id: "SeptemberJhonatanGasca",
-    img: "/SeptemberJhonatanGasca.webp",
-    alt: "Jhonatan Gasca.",
-    name: "Jhonatan Gasca.",
-    desc: "Ventures: complex and adventurous, explore flavours that will surprise your palate.",
-    price: "£14.00",
-  },
-  {
-    id: "Rumudamo",
-    img: "/Roaster_s-Spotlight-GIF-April-2024.gif",
-    alt: "Rumudamo",
-    name: "Rumudamo.",
-    desc: "Horizons: expressive and unique. Unusual origins and profiles pushing the boundaries of expectation.",
-    price: "£16.00",
-  },
-];
+import { Link } from "react-router-dom";
+import { PRODUCTS } from "@/data/products";
 
 const CoffeeCollection = () => {
+  // const navigate = useNavigate();
+
   return (
     <div>
-      <section className="bg-secondary">
+      <section className="bg-second">
         <div className="container mx-auto px-20 py-8">
           <div className="flex items-center justify-between text-xs tracking-widest">
             <p>SHOP</p>
@@ -61,9 +29,10 @@ const CoffeeCollection = () => {
 
           <Separator className="my-20 bg-gray-400" />
 
-          <div className="grid grid-cols-3">
+          <div className="my-28 grid grid-cols-3">
             {PRODUCTS.map((p) => (
-              <div
+              <Link
+                to={`/products/${p.id}`}
                 key={p.id}
                 className="flex flex-col items-center justify-between gap-8 p-6"
               >
@@ -88,7 +57,7 @@ const CoffeeCollection = () => {
                     Read more
                   </FancyHoverText>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         </div>

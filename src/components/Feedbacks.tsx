@@ -29,8 +29,8 @@ const feedbacks = [
 
 const Feedbacks = () => {
   return (
-    <section className="w-full overflow-hidden bg-secondary py-14">
-      <div className="animate-scroll flex">
+    <section className="w-full overflow-hidden bg-second py-14">
+      <div className="flex animate-scroll">
         {feedbacks.map((feedback) => (
           <div
             key={feedback.id}

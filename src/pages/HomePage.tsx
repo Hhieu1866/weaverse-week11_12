@@ -2,6 +2,7 @@ import Feedbacks from "@/components/Feedbacks";
 import { IconOne, IconThree, IconTwo } from "@/components/icons";
 import OurFavourites from "@/components/OurFavourites";
 import SubscribeSection from "@/components/SubscribeSection";
+// import RecentlyViewed from "@/components/RecentlyViewed";
 import FancyButton from "@/components/ui/FancyButton";
 import { Separator } from "@/components/ui/separator";
 
@@ -26,7 +27,7 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 flex h-full flex-col items-center justify-center space-y-5 px-4 text-center text-white">
-          <h1 className="font-custom text-5xl font-bold text-primary md:text-7xl">
+          <h1 className="font-custom text-5xl font-bold text-main md:text-7xl">
             Modern Coffee.
           </h1>
           <p className="max-w-2xl">
@@ -36,7 +37,7 @@ export default function Home() {
           <FancyButton
             padding="px-7 py-3"
             textSize="text-xs"
-            bgColor="bg-primary"
+            bgColor="bg-main"
             hoverBgColor="bg-black"
           >
             SHOP NOW
@@ -44,7 +45,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary">
+      <section className="bg-second">
         <div className="container mx-auto flex items-start gap-10 px-20 py-10">
           <div className="flex items-start gap-2">
             <div className="">
@@ -99,10 +100,11 @@ export default function Home() {
       {/* Our favourites */}
       <OurFavourites />
 
+      {/* <RecentlyViewed /> */}
+
       <Feedbacks />
 
       <section className="relative h-screen w-full">
-        {/* Ảnh nền */}
         <img
           src="/about-quote-image.webp"
           alt="about-quote-image"
@@ -112,17 +114,17 @@ export default function Home() {
         <div className="absolute inset-0 bg-black/30"></div>
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-          <p className="max-w-6xl font-custom text-4xl font-bold tracking-wide text-primary md:text-7xl">
-            WatchHouse is a slow take on instant gratification. Thoughtful
-            pours, rare flavour profiles and paraphernalia for your daily cup.
+          <p className="max-w-6xl font-custom text-4xl font-bold tracking-wide text-main md:text-7xl">
+            Elowen is a slow take on instant gratification. Thoughtful pours,
+            rare flavour profiles and paraphernalia for your daily cup.
           </p>
 
           <FancyButton
             bgColor="bg-transparent"
-            hoverBgColor="bg-primary"
-            textColor="text-primary"
+            hoverBgColor="bg-main"
+            textColor="text-main"
             hoverTextColor="text-black"
-            className="mt-14 border border-primary"
+            className="mt-14 border border-main"
           >
             Our story
           </FancyButton>
@@ -130,7 +132,7 @@ export default function Home() {
       </section>
 
       {/* Visit us */}
-      <section className="bg-primary">
+      <section className="bg-main">
         <div className="container mx-auto flex gap-10 px-20 py-36">
           <div className="w-2/3">
             <img
@@ -151,7 +153,7 @@ export default function Home() {
               <FancyButton
                 bgColor="bg-transparent"
                 textColor="text-black"
-                hoverTextColor="text-primary"
+                hoverTextColor="text-main"
                 className="border border-black"
               >
                 Our locations
@@ -165,7 +167,7 @@ export default function Home() {
       </section>
 
       {/* The journal */}
-      <section className="bg-secondary">
+      <section className="bg-second">
         <div className="container mx-auto flex flex-col px-20 py-32">
           <div className="flex items-start justify-between gap-6">
             <div className="flex-1">
@@ -181,7 +183,7 @@ export default function Home() {
               <FancyButton
                 bgColor="bg-transparent"
                 textColor="text-black"
-                hoverTextColor="text-primary"
+                hoverTextColor="text-main"
                 className="mt-5 border border-black"
               >
                 Explore journal
@@ -197,7 +199,7 @@ export default function Home() {
                 className="h-auto w-full object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-center font-custom text-6xl font-bold text-secondary drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+                <p className="text-center font-custom text-6xl font-bold text-second drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
                   WatchHouse x <br />
                   NOMAD.
                 </p>

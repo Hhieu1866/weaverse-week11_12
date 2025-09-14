@@ -8,10 +8,14 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { useCartStore } from "@/stores/cart";
 
 export default function Header() {
+  const { items } = useCartStore();
+  const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
-    <header className="sticky top-0 z-20 border-b border-black bg-primary">
+    <header className="sticky top-0 z-20 border-b border-black bg-main">
       <div className="container mx-auto flex items-center justify-between px-20 py-4">
         <nav className="hidden space-x-6 md:flex">
           <Link to="/products" className="font-semibold">
@@ -23,7 +27,7 @@ export default function Header() {
                 <NavigationMenuTrigger className="h-0 bg-transparent px-0 text-base font-semibold">
                   Collections.
                 </NavigationMenuTrigger>
-                <NavigationMenuContent className="rounded-md border bg-primary">
+                <NavigationMenuContent className="rounded-md border bg-main">
                   <ul className="grid w-48 gap-2 p-4 font-custom text-3xl font-bold">
                     <li>
                       <NavigationMenuLink asChild>
@@ -100,9 +104,14 @@ export default function Header() {
               <Search />
             </Link>
           </button>
-          <button>
-            <Link to="/login">
+          <button className="relative">
+            <Link to="/cart">
               <ShoppingCart />
+              {totalItems > 0 && (
+                <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs text-white">
+                  {totalItems}
+                </span>
+              )}
             </Link>
           </button>
         </div>
