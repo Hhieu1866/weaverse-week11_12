@@ -2,6 +2,7 @@ import { Outlet, useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Breadcrumb from "../Breadcrumb";
+import { CartDrawer } from "@/components/cart/CartDrawer";
 
 export default function Layout() {
   const location = useLocation();
@@ -14,6 +15,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      <CartDrawer />
     </div>
   );
 }

@@ -174,7 +174,6 @@ const SubscribeSection = () => {
                 </div>
               </div>
 
-              {/* CTA Button */}
               <FancyButton padding="px-7 py-2" className="mt-6 w-full">
                 {product.buttonText}
               </FancyButton>

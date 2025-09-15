@@ -24,7 +24,7 @@ const ProductDetail = () => {
   const { id } = useParams();
   const p = id ? findProduct(id) : undefined;
   const quantity = useSignal(1);
-  const { addItem } = useCartStore();
+  const { addItem, openCart } = useCartStore();
   const { addItem: addToRecentlyViewed } = useRecentlyViewedStore();
 
   // Add to recently viewed when product loads
@@ -57,7 +57,7 @@ const ProductDetail = () => {
     };
 
     addItem(cartItem);
-    toast.success(`${p.name} added to cart!`);
+    openCart();
   };
 
   return (
