@@ -5,6 +5,7 @@ import SubscribeSection from "@/components/SubscribeSection";
 // import RecentlyViewed from "@/components/RecentlyViewed";
 import FancyButton from "@/components/ui/FancyButton";
 import { Separator } from "@/components/ui/separator";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
@@ -46,8 +47,13 @@ export default function Home() {
       </section>
 
       <section className="bg-second">
-        <div className="container mx-auto flex items-start gap-10 px-20 py-10">
-          <div className="flex items-start gap-2">
+        <div className="container mx-auto flex flex-col items-start gap-10 px-6 py-10 md:flex-row md:px-20">
+          <motion.div
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="flex items-start gap-2"
+          >
             <div className="">
               <IconOne size={100} />
             </div>
@@ -60,9 +66,14 @@ export default function Home() {
                 here in South London.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex items-start gap-2">
+          <motion.div
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+            className="flex flex-row-reverse items-start gap-2 md:flex-row"
+          >
             <div className="">
               <IconTwo size={100} />
             </div>
@@ -75,9 +86,14 @@ export default function Home() {
                 on provenance and quality.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex items-start gap-2">
+          <motion.div
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+            className="flex items-start gap-2"
+          >
             <div className="">
               <IconThree size={100} />
             </div>
@@ -90,7 +106,7 @@ export default function Home() {
                 in the Modern Coffee experience.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -144,7 +160,14 @@ export default function Home() {
 
           <div className="flex w-1/3 flex-col justify-center">
             <div className="flex flex-col items-start gap-5">
-              <h1 className="font-custom text-7xl font-bold">Visit us</h1>
+              <motion.h1
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                className="font-custom text-7xl font-bold"
+              >
+                Visit us.
+              </motion.h1>
               <p>
                 25 square metres on London’s famous Bermondsey Street was all it
                 took to conceive WatchHouse and lay the foundations of
@@ -171,7 +194,14 @@ export default function Home() {
         <div className="container mx-auto flex flex-col px-20 py-32">
           <div className="flex items-start justify-between gap-6">
             <div className="flex-1">
-              <h1 className="font-custom text-7xl font-bold">The journal.</h1>
+              <motion.h1
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                className="font-custom text-7xl font-bold"
+              >
+                The journal.
+              </motion.h1>
             </div>
             <div className="flex-1">
               <p className="font-medium">
@@ -192,7 +222,12 @@ export default function Home() {
           </div>
 
           <div className="mt-16 flex gap-6">
-            <div className="relative w-full flex-1 overflow-hidden rounded-2xl">
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              className="relative w-full flex-1 overflow-hidden rounded-2xl"
+            >
               <img
                 src="/NomadBlog.webp"
                 alt="NomadBlog"
@@ -204,8 +239,14 @@ export default function Home() {
                   NOMAD.
                 </p>
               </div>
-            </div>
-            <div className="flex-1">
+            </motion.div>
+
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+              className="flex-1"
+            >
               <div className="flex gap-6">
                 <div className="flex flex-1 flex-col justify-between">
                   <div className="w-full">
@@ -279,7 +320,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

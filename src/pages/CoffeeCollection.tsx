@@ -3,6 +3,7 @@ import FancyHoverText from "@/components/ui/FancyHoverText";
 import { Separator } from "@/components/ui/separator";
 import { Link } from "react-router-dom";
 import { PRODUCTS } from "@/data/products";
+import { motion } from "framer-motion";
 
 const CoffeeCollection = () => {
   // const navigate = useNavigate();
@@ -17,9 +18,14 @@ const CoffeeCollection = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center gap-3">
-            <p className="text-center font-custom text-8xl font-bold">
+            <motion.p
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              className="text-center font-custom text-8xl font-bold"
+            >
               Whole Coffee <br /> Beans
-            </p>
+            </motion.p>
             <p className="max-w-[550px] text-center font-medium">
               Try our coffee in your home, the way you prefer. Order beans or
               ask us to grind to your preference with over 5 choices based on

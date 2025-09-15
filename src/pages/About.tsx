@@ -1,19 +1,30 @@
 import FancyButton from "@/components/ui/FancyButton";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
     <main className="bg-main">
       <section className="container mx-auto flex items-start gap-10 px-20 py-20">
         <div className="flex-1 space-y-5">
-          <h1 className="font-custom text-7xl font-bold">
+          <motion.h1
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+            className="font-custom text-7xl font-bold"
+          >
             Born in Bermondsey, discovered worldwide.
-          </h1>
-          <p className="w-1/2 font-medium">
+          </motion.h1>
+          <motion.p
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="w-1/2 font-medium"
+          >
             From humble beginnings in South London, we're building a local
             community far and wide. Approachable, considered, full of quality
             and provenance; thoughtful products and paraphernalia for your daily
             cup. Our House or yours.
-          </p>
+          </motion.p>
         </div>
 
         <div className="flex-1">
@@ -49,10 +60,15 @@ const About = () => {
       </section>
 
       <section className="container mx-auto px-20 py-32">
-        <h1 className="text-center font-custom text-7xl font-bold">
+        <motion.h1
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          className="text-center font-custom text-7xl font-bold"
+        >
           25 square meters on London’s famous Bermondsey Street was all it took
           to conceive WatchHouse and lay the foundations of everything to come.
-        </h1>
+        </motion.h1>
 
         <div className="relative mt-20 flex gap-16">
           <div className="w-2/3">
@@ -83,10 +99,20 @@ const About = () => {
       <section className="bg-second">
         <div className="container mx-auto px-20 py-20">
           <div className="flex items-start gap-7">
-            <h1 className="flex-1 font-custom text-7xl font-bold">
+            <motion.h1
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              className="flex-1 font-custom text-7xl font-bold"
+            >
               Our approach.
-            </h1>
-            <div className="flex-1 space-y-5">
+            </motion.h1>
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              className="flex-1 space-y-5"
+            >
               <p>
                 A home to those who value craft and quality, our aspiration is
                 to be the local hero of choice. Dedicated to transparent,
@@ -103,24 +129,32 @@ const About = () => {
               >
                 See our houses
               </FancyButton>
-            </div>
+            </motion.div>
           </div>
 
           <div className="mt-20 flex gap-7">
-            <div>
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            >
               <img
                 src="/approach-1.webp"
                 alt="approach-1"
                 className="rounded-2xl"
               />
-            </div>
-            <div>
+            </motion.div>
+            <motion.div
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+            >
               <img
                 src="/approach-2.webp"
                 alt="approach-2"
                 className="rounded-2xl"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>

@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import FancyButton from "./ui/FancyButton";
 import { PRODUCTS } from "@/data/products";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const favourites = PRODUCTS.filter((p) => p.isFavourite);
@@ -40,13 +41,25 @@ const OurFavourites = () => {
     <div className="bg-main">
       <div className="container mx-auto px-20 py-32">
         <div className="flex items-center justify-between">
-          <h1 className="font-custom text-6xl font-bold">Our favourites.</h1>
+          <motion.h1
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="font-custom text-6xl font-bold"
+          >
+            Our favourites.
+          </motion.h1>
           <FancyButton className="border border-black bg-transparent">
             SHOP NOW
           </FancyButton>
         </div>
 
-        <div className="mt-14 overflow-hidden">
+        <motion.div
+          className="mt-14 overflow-hidden"
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+        >
           <div
             ref={scrollerRef}
             className="no-scrollbar flex gap-8 overflow-x-auto pb-2 transition-transform duration-300"
@@ -73,7 +86,7 @@ const OurFavourites = () => {
               </Link>
             ))}
           </div>
-        </div>
+        </motion.div>
 
         <div className="mt-10 flex items-center justify-center gap-2">
           <button

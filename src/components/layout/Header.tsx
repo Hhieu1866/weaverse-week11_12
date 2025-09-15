@@ -16,9 +16,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-20 border-b border-black bg-main">
-      <div className="container mx-auto flex items-center justify-between px-20 py-4">
+      <div className="container mx-auto flex items-center justify-between px-6 py-4 md:px-20">
         <nav className="hidden space-x-6 md:flex">
-          <Link to="/products" className="font-semibold">
+          <Link to="/products" className="cursor-not-allowed font-semibold">
             Subscribe.
           </Link>
           <NavigationMenu>
@@ -82,10 +82,10 @@ export default function Header() {
             Blog.
           </Link>
           <Link to="/about" className="font-semibold">
-            Visit us.
+            About.
           </Link>
           <Link to="/about" className="font-semibold">
-            Info.
+            Visit us.
           </Link>
         </nav>
 
@@ -99,7 +99,7 @@ export default function Header() {
               <UserRound />
             </Link>
           </button>
-          <button>
+          <button className="hidden md:block">
             <Link to="/login">
               <Search />
             </Link>

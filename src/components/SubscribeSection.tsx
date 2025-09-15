@@ -2,6 +2,7 @@ import { Check, ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef } from "react";
 import { Separator } from "./ui/separator";
 import FancyButton from "./ui/FancyButton";
+import { motion } from "framer-motion";
 
 // Product data - easy to maintain and add new products
 const products = [
@@ -97,9 +98,15 @@ const SubscribeSection = () => {
         {/* Left side - static content */}
         <div className="flex w-1/4 flex-col justify-between pt-28">
           <div className="space-y-5">
-            <h1 className="font-custom text-6xl font-bold leading-none">
+            <motion.h1
+              initial={{ y: 40, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.7 }}
+              viewport={{ once: true, amount: 0.3 }}
+              className="font-custom text-6xl font-bold leading-none"
+            >
               Subscribe today.
-            </h1>
+            </motion.h1>
             <p className="font-medium">
               WatchHouse. YourHouse. The Modern Coffee experience in the comfort
               of your own home.
@@ -127,7 +134,10 @@ const SubscribeSection = () => {
         </div>
 
         {/* Right side - scrollable cards */}
-        <div
+        <motion.div
+          initial={{ y: 40, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           ref={scrollerRef}
           className="no-scrollbar -mx-1 flex flex-1 snap-x snap-mandatory flex-nowrap gap-7 overflow-x-auto overflow-y-visible px-1 pb-2 pt-28"
         >
@@ -179,7 +189,7 @@ const SubscribeSection = () => {
               </FancyButton>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

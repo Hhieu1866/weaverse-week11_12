@@ -1,6 +1,7 @@
 import { ArrowRight } from "lucide-react";
 import { Input } from "../ui/input";
 import { Separator } from "../ui/separator";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
@@ -9,10 +10,15 @@ export default function Footer() {
         <div className="container mx-auto px-20 py-14">
           <div className="flex items-center gap-28 text-main">
             <div className="max-w-[688px]">
-              <p className="font-custom text-6xl font-bold">
+              <motion.p
+                initial={{ y: 40, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                className="font-custom text-6xl font-bold"
+              >
                 Proudly originating in a former 19th century watch house on
                 London's famous Bermondsey Street.
-              </p>
+              </motion.p>
             </div>
             <div className="w-full space-y-4">
               <p className="font-custom text-2xl font-bold">

@@ -14,10 +14,10 @@ import { useSignal } from "@preact/signals-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import FancyButton from "@/components/ui/FancyButton";
 import { IconOne, IconThree, IconTwo } from "@/components/icons";
-import AlsoLike from "@/components/AlsoLike";
+import RecentlyViewed from "@/components/RecentlyViewed";
 import { useCartStore } from "@/stores/cart";
 import { useRecentlyViewedStore } from "@/stores/recentlyViewed";
-import { toast } from "sonner";
+import { motion } from "framer-motion";
 import { useEffect } from "react";
 
 const ProductDetail = () => {
@@ -270,7 +270,12 @@ const ProductDetail = () => {
 
       <section className="bg-second">
         <div className="container mx-auto flex items-start gap-10 px-20 py-10">
-          <div className="flex items-start gap-2">
+          <motion.div
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="flex items-start gap-2"
+          >
             <div className="">
               <IconOne size={100} />
             </div>
@@ -283,9 +288,14 @@ const ProductDetail = () => {
                 here in South London.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex items-start gap-2">
+          <motion.div
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+            className="flex items-start gap-2"
+          >
             <div className="">
               <IconTwo size={100} />
             </div>
@@ -298,9 +308,14 @@ const ProductDetail = () => {
                 on provenance and quality.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex items-start gap-2">
+          <motion.div
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+            className="flex items-start gap-2"
+          >
             <div className="">
               <IconThree size={100} />
             </div>
@@ -313,11 +328,11 @@ const ProductDetail = () => {
                 in the Modern Coffee experience.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      <AlsoLike />
+      <RecentlyViewed />
     </main>
   );
 };
