@@ -9,7 +9,7 @@ import { motion } from "framer-motion";
 
 export default function Home() {
   return (
-    <div className="">
+    <main>
       <section className="relative h-screen w-full overflow-hidden">
         {/* Video background */}
         <video
@@ -110,10 +110,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Subscribe section */}
       <SubscribeSection />
 
-      {/* Our favourites */}
       <OurFavourites />
 
       {/* <RecentlyViewed /> */}
@@ -149,26 +147,28 @@ export default function Home() {
 
       {/* Visit us */}
       <section className="bg-main">
-        <div className="container mx-auto flex gap-10 px-20 py-36">
-          <div className="w-2/3">
+        <div className="container mx-auto flex flex-col items-center gap-10 px-4 py-16 md:flex-row md:items-center md:gap-10 md:px-20 md:py-36">
+          {/* Left image */}
+          <div className="w-full md:w-2/3">
             <img
               src="/Visit_us_homepage.webp"
               alt="Visit_us_homepage"
-              className="rounded-3xl"
+              className="w-full rounded-3xl object-cover"
             />
           </div>
 
-          <div className="flex w-1/3 flex-col justify-center">
+          {/* Right content */}
+          <div className="flex w-full flex-col justify-center md:w-1/3">
             <div className="flex flex-col items-start gap-5">
               <motion.h1
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                className="font-custom text-7xl font-bold"
+                className="font-custom text-4xl font-bold md:text-7xl"
               >
                 Visit us.
               </motion.h1>
-              <p>
+              <p className="text-sm md:text-base">
                 25 square metres on London’s famous Bermondsey Street was all it
                 took to conceive WatchHouse and lay the foundations of
                 everything to come.
@@ -182,8 +182,13 @@ export default function Home() {
                 Our locations
               </FancyButton>
             </div>
-            <div className="mt-20">
-              <img src="/bermo.webp" alt="bermo" className="rounded-3xl" />
+
+            <div className="mt-10 md:mt-20">
+              <img
+                src="/bermo.webp"
+                alt="bermo"
+                className="w-full rounded-3xl object-cover"
+              />
             </div>
           </div>
         </div>
@@ -191,20 +196,21 @@ export default function Home() {
 
       {/* The journal */}
       <section className="bg-second">
-        <div className="container mx-auto flex flex-col px-20 py-32">
-          <div className="flex items-start justify-between gap-6">
+        <div className="container mx-auto flex flex-col px-4 py-16 md:px-20 md:py-32">
+          {/* Header */}
+          <div className="flex flex-col items-start justify-between gap-6 md:flex-row">
             <div className="flex-1">
               <motion.h1
                 initial={{ y: 40, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-                className="font-custom text-7xl font-bold"
+                className="font-custom text-4xl font-bold md:text-7xl"
               >
                 The journal.
               </motion.h1>
             </div>
             <div className="flex-1">
-              <p className="font-medium">
+              <p className="text-sm font-medium md:text-base">
                 25 square metres on London’s famous Bermondsey Street was all it
                 took to conceive WatchHouse and lay the foundations of
                 everything to come. Historically a shelter for men guarding the
@@ -221,7 +227,9 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-16 flex gap-6">
+          {/* Content */}
+          <div className="mt-10 flex flex-col gap-6 md:mt-16 md:flex-row">
+            {/* Big left card */}
             <motion.div
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -234,20 +242,22 @@ export default function Home() {
                 className="h-auto w-full object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <p className="text-center font-custom text-6xl font-bold text-second drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
+                <p className="text-center font-custom text-3xl font-bold text-second drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] md:text-6xl">
                   WatchHouse x <br />
                   NOMAD.
                 </p>
               </div>
             </motion.div>
 
+            {/* Right side cards */}
             <motion.div
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-              className="flex-1"
+              className="flex flex-1 flex-col gap-6"
             >
-              <div className="flex gap-6">
+              {/* First small card */}
+              <div className="flex flex-col gap-6 md:flex-row">
                 <div className="flex flex-1 flex-col justify-between">
                   <div className="w-full">
                     <div className="space-y-1">
@@ -258,10 +268,10 @@ export default function Home() {
                   <div>
                     <Separator className="bg-gray-400" />
                     <div className="space-y-4">
-                      <p className="font-custom text-xl font-bold">
+                      <p className="font-custom text-lg font-bold md:text-xl">
                         Introducing: matcha.
                       </p>
-                      <p>
+                      <p className="text-sm md:text-base">
                         Three drinks. Two matchas. No shortcuts. At WatchHouse,
                         every ingredient we serve is carefully chosen, not just
                         for what ...
@@ -279,17 +289,18 @@ export default function Home() {
                   <img
                     src="/MatchaInHouse.webp"
                     alt="MatchaInHouse"
-                    className="rounded-2xl"
+                    className="w-full rounded-2xl"
                   />
                 </div>
               </div>
 
-              <div className="mt-6 flex gap-6">
+              {/* Second small card */}
+              <div className="flex flex-col gap-6 md:flex-row">
                 <div className="flex-1">
                   <img
                     src="/Colombian_Vista.webp"
                     alt="Colombian_Vista"
-                    className="rounded-2xl"
+                    className="w-full rounded-2xl"
                   />
                 </div>
                 <div className="flex flex-1 flex-col justify-between">
@@ -302,10 +313,10 @@ export default function Home() {
                   <div>
                     <Separator className="bg-gray-400" />
                     <div className="space-y-4">
-                      <p className="font-custom text-xl font-bold">
+                      <p className="font-custom text-lg font-bold md:text-xl">
                         Origin: Colombia.
                       </p>
-                      <p>
+                      <p className="text-sm md:text-base">
                         Think of spectacular of coffee, and Colombia is the
                         origin that comes to mind. With its dramatic landscapes,
                         diverse mi...
@@ -324,6 +335,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
+    </main>
   );
 }

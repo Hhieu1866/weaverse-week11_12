@@ -14,81 +14,88 @@ const OurFavourites = () => {
     const el = scrollerRef.current;
     if (!el) return;
 
-    const scrollAmount = el.firstElementChild?.clientWidth || 0;
+    const firstCard = el.firstElementChild as HTMLElement | null;
+    const cardWidth = firstCard?.getBoundingClientRect().width ?? 0;
+
+    const styles = getComputedStyle(el);
+    const gapStr = (styles.columnGap || styles.gap || "0").toString();
+    const gap = parseFloat(gapStr) || 0;
+
+    const amount = cardWidth + gap;
 
     if (direction === "next") {
-      // Check if we are near the end of the scroll
       if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 1) {
-        // If at the end, loop back to the start
         el.scrollTo({ left: 0, behavior: "smooth" });
       } else {
-        // Otherwise, scroll by one card width
-        el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        el.scrollBy({ left: amount, behavior: "smooth" });
       }
     } else {
-      // Check if we are at the beginning
-      if (el.scrollLeft === 0) {
-        // If at the start, loop to the end
+      if (el.scrollLeft <= 0) {
         el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
       } else {
-        // Otherwise, scroll back by one card width
-        el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        el.scrollBy({ left: -amount, behavior: "smooth" });
       }
     }
   };
 
   return (
     <div className="bg-main">
-      <div className="container mx-auto px-20 py-32">
+      <div className="container mx-auto px-4 py-16 md:px-20 md:py-32">
+        {/* Header */}
         <div className="flex items-center justify-between">
           <motion.h1
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="font-custom text-6xl font-bold"
+            className="font-custom text-4xl font-bold md:text-5xl lg:text-6xl"
           >
             Our favourites.
           </motion.h1>
-          <FancyButton className="border border-black bg-transparent">
+          <FancyButton
+            className="border border-black bg-transparent"
+            padding="px-3 py-1"
+          >
             SHOP NOW
           </FancyButton>
         </div>
 
+        {/* Card list */}
         <motion.div
-          className="mt-14 overflow-hidden"
+          className="mt-8 md:mt-14"
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.5 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <div
             ref={scrollerRef}
-            className="no-scrollbar flex gap-8 overflow-x-auto pb-2 transition-transform duration-300"
-            style={{
-              scrollSnapType: "x mandatory",
-            }}
+            className="no-scrollbar -mx-1 flex snap-x snap-mandatory gap-6 overflow-x-auto px-1 pb-2 md:gap-8"
           >
-            {favourites.map((item, index) => (
+            {favourites.map((item) => (
               <Link
                 to={`/products/${item.id}`}
-                key={index}
-                className="flex-shrink-0 text-center"
-                style={{
-                  width: "calc((100% - 4rem) / 3)",
-                  scrollSnapAlign: "start",
-                }}
+                key={item.id}
+                className="w-[85%] shrink-0 snap-start text-center sm:w-[70%] md:w-auto md:basis-[calc((100%-4rem)/3)]"
               >
-                <img src={item.img} alt={item.alt} />
-                <div className="mt-4 flex flex-col gap-2 p-4">
-                  <p className="font-custom text-lg font-bold">{item.name}</p>
-                  <span className="text-sm leading-relaxed">{item.desc}</span>
-                  <p className="font-semibold">{item.price}</p>
+                <img src={item.img} alt={item.alt} className="mx-auto" />
+                <div className="mt-4 flex flex-col gap-2 p-2 sm:p-4">
+                  <p className="font-custom text-base font-bold sm:text-lg">
+                    {item.name}
+                  </p>
+                  <span className="text-xs leading-relaxed sm:text-sm">
+                    {item.desc}
+                  </span>
+                  <p className="text-sm font-semibold sm:text-base">
+                    {item.price}
+                  </p>
                 </div>
               </Link>
             ))}
           </div>
         </motion.div>
 
-        <div className="mt-10 flex items-center justify-center gap-2">
+        {/* Navigation buttons (desktop only) */}
+        <div className="mt-6 hidden items-center justify-center gap-2 md:mt-10 md:flex">
           <button
             type="button"
             onClick={() => scroll("prev")}
