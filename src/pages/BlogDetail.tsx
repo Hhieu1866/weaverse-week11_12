@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import FancyButton from "@/components/ui/FancyButton";
 import { Separator } from "@/components/ui/separator";
-import { findBlogPost, BLOG_TOPICS } from "@/data/blog";
+import { findBlogPost } from "@/data/blog";
 import { motion } from "framer-motion";
 
 const BlogDetail = () => {
@@ -95,26 +95,111 @@ const BlogDetail = () => {
           </FancyButton>
         </div>
 
-        <div>
-          <div className="flex items-center justify-between text-xs tracking-widest">
-            <p>SHOP</p>
-            <p>ELOWEN</p>
-          </div>
-          <h1 className="font-custom text-9xl font-bold">Journal.</h1>
-          <p className="mt-6 font-medium">
-            Our latest news, coffee musings and sourcing stories.
-          </p>
-          <div className="mt-8 flex items-center gap-5">
-            <h3 className="font-medium">Topics:</h3>
-            {BLOG_TOPICS.map((topic) => (
-              <p
-                key={topic}
-                className="cursor-pointer text-xs uppercase tracking-widest underline underline-offset-4"
-              >
-                {topic}
+        {/* Content */}
+        <div className="mt-10 flex flex-col gap-6 md:mt-16 md:flex-row">
+          {/* Big left card */}
+          <motion.div
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            className="relative w-full flex-1 overflow-hidden rounded-2xl"
+          >
+            <img
+              src="/NomadBlog.webp"
+              alt="NomadBlog"
+              className="h-auto w-full object-cover"
+            />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <p className="text-center font-custom text-3xl font-bold text-second drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)] md:text-6xl">
+                WatchHouse x <br />
+                NOMAD.
               </p>
-            ))}
-          </div>
+            </div>
+          </motion.div>
+
+          {/* Right side cards */}
+          <motion.div
+            initial={{ y: 40, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+            className="flex flex-1 flex-col gap-6"
+          >
+            {/* First small card */}
+            <div className="flex flex-col gap-6 md:flex-row">
+              <div className="flex flex-1 flex-col justify-between">
+                <div className="w-full">
+                  <div className="space-y-1">
+                    <Separator className="bg-black" />
+                    <p className="font-bold">Spotlight.</p>
+                  </div>
+                </div>
+                <div>
+                  <Separator className="bg-gray-400" />
+                  <div className="space-y-4">
+                    <p className="font-custom text-lg font-bold md:text-xl">
+                      Introducing: matcha.
+                    </p>
+                    <p className="text-sm md:text-base">
+                      Three drinks. Two matchas. No shortcuts. At WatchHouse,
+                      every ingredient we serve is carefully chosen, not just
+                      for what ...
+                    </p>
+                    <button
+                      role="link"
+                      className="after:ease-[cubic-bezier(0.65_0.05_0.36_1)] relative font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:w-full after:origin-bottom after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 hover:after:origin-bottom hover:after:scale-x-100"
+                    >
+                      Read more.
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div className="flex-1">
+                <img
+                  src="/MatchaInHouse.webp"
+                  alt="MatchaInHouse"
+                  className="w-full rounded-2xl"
+                />
+              </div>
+            </div>
+
+            {/* Second small card */}
+            <div className="flex flex-col gap-6 md:flex-row">
+              <div className="flex-1">
+                <img
+                  src="/Colombian_Vista.webp"
+                  alt="Colombian_Vista"
+                  className="w-full rounded-2xl"
+                />
+              </div>
+              <div className="flex flex-1 flex-col justify-between">
+                <div className="w-full">
+                  <div className="space-y-1">
+                    <Separator className="bg-black" />
+                    <p className="font-bold">Spotlight.</p>
+                  </div>
+                </div>
+                <div>
+                  <Separator className="bg-gray-400" />
+                  <div className="space-y-4">
+                    <p className="font-custom text-lg font-bold md:text-xl">
+                      Origin: Colombia.
+                    </p>
+                    <p className="text-sm md:text-base">
+                      Think of spectacular of coffee, and Colombia is the origin
+                      that comes to mind. With its dramatic landscapes, diverse
+                      mi...
+                    </p>
+                    <button
+                      role="link"
+                      className="after:ease-[cubic-bezier(0.65_0.05_0.36_1)] relative font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:w-full after:origin-bottom after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 hover:after:origin-bottom hover:after:scale-x-100"
+                    >
+                      Read more.
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
     </main>

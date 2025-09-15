@@ -1,12 +1,6 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  // ScrollRestoration,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import HomePage from "./pages/HomePage";
-import Products from "./pages/Products";
 import CoffeeCollection from "./pages/CoffeeCollection";
 import ProductDetail from "./pages/ProductDetail";
 import Cart from "./pages/Cart";
@@ -15,17 +9,16 @@ import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 import Blog from "./pages/Blog";
 import BlogDetail from "./pages/BlogDetail";
-
+import ScrollToTop from "./components/ScrollToTop";
 import { Toaster } from "sonner";
 
 export default function App() {
   return (
     <BrowserRouter>
-      {/* <ScrollRestoration /> */}
+      <ScrollToTop /> {/* Thêm component này */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="products" element={<Products />} />
           <Route path="collections/coffee" element={<CoffeeCollection />} />
           <Route path="products/:id" element={<ProductDetail />} />
           <Route path="cart" element={<Cart />} />
