@@ -2,7 +2,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  ScrollRestoration,
+  // ScrollRestoration,
 } from "react-router-dom";
 import Layout from "./components/layout/Layout";
 import HomePage from "./pages/HomePage";
@@ -13,13 +13,15 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
+import Blog from "./pages/Blog";
+import BlogDetail from "./pages/BlogDetail";
 
 import { Toaster } from "sonner";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <ScrollRestoration />
+      {/* <ScrollRestoration /> */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
@@ -29,6 +31,8 @@ export default function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogDetail />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

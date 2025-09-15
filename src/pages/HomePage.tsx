@@ -115,8 +115,8 @@ export default function Home() {
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
           <p className="max-w-6xl font-custom text-4xl font-bold tracking-wide text-main md:text-7xl">
-            Elowen is a slow take on instant gratification. Thoughtful pours,
-            rare flavour profiles and paraphernalia for your daily cup.
+            WatchHouse is a slow take on instant gratification. Thoughtful
+            pours, rare flavour profiles and paraphernalia for your daily cup.
           </p>
 
           <FancyButton

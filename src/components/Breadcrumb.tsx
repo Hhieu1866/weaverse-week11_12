@@ -47,7 +47,7 @@ export default function BreadcrumbNav() {
 
   return (
     <div className="bg-main">
-      <div className="container mx-auto px-20 py-4">
+      <div className="container mx-auto mt-4 px-20">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>

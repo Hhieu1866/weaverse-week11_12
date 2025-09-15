@@ -90,7 +90,7 @@ export default function Header() {
         </nav>
 
         <Link to="/" className="-ml-80 font-custom text-5xl font-bold">
-          Elowen
+          WatchHouse
         </Link>
 
         <div className="flex items-center space-x-5">

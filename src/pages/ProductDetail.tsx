@@ -46,23 +46,23 @@ const ProductDetail = () => {
 
   const handleAddToCart = () => {
     if (!p) return;
-    
+
     const cartItem = {
       id: `${p.id}-${Date.now()}`,
       productId: p.id,
       name: p.name,
-      price: parseFloat(p.price.replace('£', '')),
+      price: parseFloat(p.price.replace("£", "")),
       image: p.img,
       quantity: quantity.value,
     };
-    
+
     addItem(cartItem);
     toast.success(`${p.name} added to cart!`);
   };
 
   return (
     <main className="bg-main">
-      <section className="container mx-auto px-20 py-20">
+      <section className="container mx-auto px-20 py-16">
         <div className="relative flex gap-8 px-14">
           <div className="sticky top-0 w-2/3 self-start">
             <img
