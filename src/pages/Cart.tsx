@@ -1,7 +1,7 @@
 import SuggestedProducts from "@/components/SuggestedProducts";
 import FancyButton from "@/components/ui/FancyButton";
 import { Separator } from "@/components/ui/separator";
-import { Minus, Plus, Trash2 } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useCartStore } from "@/stores/cart";
 import FancyHoverText from "@/components/ui/FancyHoverText";
