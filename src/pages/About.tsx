@@ -4,13 +4,14 @@ import { motion } from "framer-motion";
 const About = () => {
   return (
     <main className="bg-main">
-      <section className="container mx-auto flex items-start gap-10 px-20 py-20">
+      {/* Hero intro */}
+      <section className="container mx-auto flex flex-col gap-10 px-4 py-10 md:flex-row md:items-start md:gap-10 md:px-20 md:py-20">
         <div className="flex-1 space-y-5">
           <motion.h1
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
-            className="font-custom text-7xl font-bold"
+            className="font-custom text-3xl font-bold sm:text-4xl md:text-7xl"
           >
             Born in Bermondsey, discovered worldwide.
           </motion.h1>
@@ -18,7 +19,7 @@ const About = () => {
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-            className="w-1/2 font-medium"
+            className="w-full font-medium md:w-1/2"
           >
             From humble beginnings in South London, we're building a local
             community far and wide. Approachable, considered, full of quality
@@ -32,50 +33,49 @@ const About = () => {
         </div>
       </section>
 
-      <section className="relative h-screen w-full py-20">
+      {/* Banner with overlay */}
+      <section className="relative h-[60vh] w-full py-10 md:h-screen md:py-20">
         <img
           src="/about-banner.webp"
           alt="about-banner"
           className="absolute inset-0 h-full w-full object-cover"
         />
-
         <div className="absolute inset-0 bg-black/30"></div>
-
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-          <p className="max-w-6xl font-custom text-4xl font-bold tracking-wide text-main md:text-7xl">
+        <div className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center">
+          <p className="max-w-4xl font-custom text-2xl font-bold tracking-wide text-main sm:text-4xl md:max-w-6xl md:text-7xl">
             Pourers of the world’s best coffees and providers of the tools and
             techniques that make it yours.
           </p>
-
           <FancyButton
             bgColor="bg-transparent"
             hoverBgColor="bg-main"
             textColor="text-main"
             hoverTextColor="text-black"
-            className="mt-14 border border-main"
+            className="mt-10 border border-main md:mt-14"
           >
             Visit us
           </FancyButton>
         </div>
       </section>
 
-      <section className="container mx-auto px-20 py-32">
+      {/* Story */}
+      <section className="container mx-auto px-4 py-16 md:px-20 md:py-32">
         <motion.h1
           initial={{ y: 40, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="text-center font-custom text-7xl font-bold"
+          className="text-center font-custom text-3xl font-bold sm:text-4xl md:text-7xl"
         >
           25 square meters on London’s famous Bermondsey Street was all it took
           to conceive WatchHouse and lay the foundations of everything to come.
         </motion.h1>
 
-        <div className="relative mt-20 flex gap-16">
-          <div className="w-2/3">
+        <div className="relative mt-10 flex flex-col gap-10 md:mt-20 md:flex-row md:gap-16">
+          <div className="w-full md:w-2/3">
             <img src="/image-text-desc.webp" alt="image-text-desc" />
           </div>
 
-          <div className="sticky top-32 w-1/3 space-y-4 self-start font-medium">
+          <div className="w-full space-y-4 font-medium md:sticky md:top-32 md:w-1/3 md:self-start">
             <p>
               Historically a shelter for men guarding the graveyard of St Mary
               Magdalen’s Church, today we honour its former role by providing a
@@ -96,14 +96,15 @@ const About = () => {
         </div>
       </section>
 
+      {/* Approach */}
       <section className="bg-second">
-        <div className="container mx-auto px-20 py-20">
-          <div className="flex items-start gap-7">
+        <div className="container mx-auto px-4 py-16 md:px-20 md:py-20">
+          <div className="flex flex-col gap-7 md:flex-row md:items-start">
             <motion.h1
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-              className="flex-1 font-custom text-7xl font-bold"
+              className="flex-1 font-custom text-3xl font-bold sm:text-4xl md:text-7xl"
             >
               Our approach.
             </motion.h1>
@@ -111,7 +112,7 @@ const About = () => {
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-              className="flex-1 space-y-5"
+              className="flex-1 space-y-5 text-sm md:text-base"
             >
               <p>
                 A home to those who value craft and quality, our aspiration is
@@ -132,7 +133,7 @@ const About = () => {
             </motion.div>
           </div>
 
-          <div className="mt-20 flex gap-7">
+          <div className="mt-10 flex flex-col gap-6 md:mt-20 md:flex-row md:gap-7">
             <motion.div
               initial={{ y: 40, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}

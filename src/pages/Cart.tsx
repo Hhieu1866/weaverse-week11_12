@@ -86,10 +86,10 @@ const Cart = () => {
                       £{(item.price * item.quantity).toFixed(2)}
                     </p>
                     <button
-                      className="cursor-pointer text-red-600"
+                      className="ml-5 font-medium"
                       onClick={() => removeItem(item.id)}
                     >
-                      <Trash2 size={20} />
+                      Delete
                     </button>
                   </div>
                 ))}

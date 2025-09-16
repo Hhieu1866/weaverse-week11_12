@@ -23,30 +23,24 @@ import { useEffect } from "react";
 const ProductDetail = () => {
   const { id } = useParams();
   const p = id ? findProduct(id) : undefined;
+
   const quantity = useSignal(1);
   const { addItem, openCart } = useCartStore();
   const { addItem: addToRecentlyViewed } = useRecentlyViewedStore();
 
-  // Add to recently viewed when product loads
   useEffect(() => {
-    if (p) {
-      addToRecentlyViewed(p);
-    }
+    if (p) addToRecentlyViewed(p);
   }, [p, addToRecentlyViewed]);
 
   const handleDecreaseQuantity = () => {
-    if (quantity.value > 1) {
-      quantity.value = quantity.value - 1;
-    }
+    if (quantity.value > 1) quantity.value = quantity.value - 1;
   };
-
   const handleIncreaseQuantity = () => {
     quantity.value = quantity.value + 1;
   };
 
   const handleAddToCart = () => {
     if (!p) return;
-
     const cartItem = {
       id: `${p.id}-${Date.now()}`,
       productId: p.id,
@@ -55,16 +49,17 @@ const ProductDetail = () => {
       image: p.img,
       quantity: quantity.value,
     };
-
     addItem(cartItem);
     openCart();
   };
 
   return (
     <main className="bg-main">
-      <section className="container mx-auto px-20 py-16">
-        <div className="relative flex gap-8 px-14">
-          <div className="sticky top-0 w-2/3 self-start">
+      <section className="container mx-auto px-4 py-10 md:px-20 md:py-16">
+        {/* 2 cột: mobile dọc, desktop ngang */}
+        <div className="relative flex flex-col gap-8 md:flex-row md:gap-8">
+          {/* Image */}
+          <div className="w-full md:sticky md:top-0 md:w-2/3 md:self-start">
             <img
               src={p?.img}
               alt={p?.name || ""}
@@ -72,9 +67,12 @@ const ProductDetail = () => {
             />
           </div>
 
-          <div className="mt-24 flex w-1/3 flex-col gap-3">
-            <h1 className="font-custom text-5xl font-bold">{p?.name}</h1>
-            <span>
+          {/* Right panel */}
+          <div className="mt-2 flex w-full flex-col gap-3 md:mt-24 md:w-1/3">
+            <h1 className="font-custom text-3xl font-bold md:text-5xl">
+              {p?.name}
+            </h1>
+            <span className="text-sm md:text-base">
               Our 1829 Espresso is our seasonal espresso for milk. We source,
               roast and brew this coffee specifically for an exceptional milk
               based experience. <strong>Read more</strong>.
@@ -82,42 +80,36 @@ const ProductDetail = () => {
 
             <Separator className="bg-black" />
 
-            <div className="space-y-4">
+            {/* Specs */}
+            <div className="space-y-4 text-sm md:text-base">
               <div className="flex items-center justify-between">
                 <p className="font-bold">Tasting Notes.</p>
                 <p>Prune, Nutella, Hazelnut</p>
               </div>
-
               <div className="flex items-center justify-between">
                 <p className="font-bold">Origin.</p>
                 <p>Costa Rica</p>
               </div>
-
               <div className="flex items-center justify-between">
                 <p className="font-bold">Region.</p>
                 <p>Turrialba</p>
               </div>
-
               <div className="flex items-center justify-between">
                 <p className="font-bold">Traceability.</p>
                 <p>Aquiares Estate</p>
               </div>
-
               <div className="flex items-center justify-between">
                 <p className="font-bold">Altitude.</p>
                 <p>1200MaSL</p>
               </div>
-
               <div className="flex items-center justify-between">
                 <p className="font-bold">Varieties.</p>
                 <p>Marsellesa, Obata</p>
               </div>
-
               <div className="flex items-center justify-between">
                 <p className="font-bold">Process.</p>
                 <p>Washed</p>
               </div>
-
               <div className="flex items-center justify-between">
                 <p className="font-bold">Bag Size.</p>
                 <p>200g</p>
@@ -126,6 +118,7 @@ const ProductDetail = () => {
 
             <Separator className="my-5 bg-gray-400" />
 
+            {/* Grind */}
             <div className="flex items-center justify-between">
               <p className="font-bold">Grind.</p>
               <DropdownMenu>
@@ -146,17 +139,20 @@ const ProductDetail = () => {
               </DropdownMenu>
             </div>
 
+            {/* Quantity */}
             <div className="flex items-center justify-between">
               <p className="font-bold">Quantity.</p>
               <div className="flex items-center justify-between gap-6">
                 <button
+                  type="button"
                   className="cursor-pointer"
                   onClick={handleDecreaseQuantity}
                 >
                   <Minus />
                 </button>
-                <div className="text-lg font-bold">{quantity}</div>
+                <div className="text-lg font-bold">{quantity.value}</div>
                 <button
+                  type="button"
                   className="cursor-pointer"
                   onClick={handleIncreaseQuantity}
                 >
@@ -165,7 +161,8 @@ const ProductDetail = () => {
               </div>
             </div>
 
-            <Tabs defaultValue="left" className="w-[400px]">
+            {/* Purchase Tabs */}
+            <Tabs defaultValue="left" className="w-full">
               <TabsList className="w-full rounded-full border border-black bg-transparent">
                 <TabsTrigger
                   value="left"
@@ -229,6 +226,7 @@ const ProductDetail = () => {
 
             <Separator className="my-5 bg-gray-400" />
 
+            {/* Cross-sell */}
             <div className="space-y-3">
               <p className="text-xs uppercase tracking-widest">
                 Make your perfect cup.
@@ -246,7 +244,7 @@ const ProductDetail = () => {
                   </p>
                   <p className="text-sm font-medium">From £22.00</p>
                 </div>
-                <button>
+                <button type="button">
                   <CirclePlus className="size-7" />
                 </button>
               </div>
@@ -260,33 +258,35 @@ const ProductDetail = () => {
           </div>
         </div>
 
-        <div className="my-20 flex flex-col items-center justify-center gap-4">
+        {/* Info split line */}
+        <div className="my-14 flex flex-col items-center justify-center gap-4 md:my-20">
           <p className="text-xs uppercase tracking-widest">Info.</p>
           <Separator className="h-[0.5px] w-full bg-black" />
         </div>
 
-        {/* content */}
-        <div className="px-80">
-          <p className="text-justify font-medium">{p?.content}</p>
+        {/* Content */}
+        <div className="px-4 md:px-80">
+          <p className="text-justify text-sm font-medium md:text-base">
+            {p?.content}
+          </p>
         </div>
       </section>
 
+      {/* Icons row */}
       <section className="bg-second">
-        <div className="container mx-auto flex items-start gap-10 px-20 py-10">
+        <div className="container mx-auto flex flex-col items-start gap-8 px-4 py-12 md:flex-row md:items-start md:gap-10 md:px-20 md:py-10">
           <motion.div
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             className="flex items-start gap-2"
           >
-            <div className="">
-              <IconOne size={100} />
-            </div>
+            <IconOne size={100} />
             <div>
-              <h2 className="font-custom text-2xl font-bold">
+              <h2 className="font-custom text-xl font-bold md:text-2xl">
                 Globally sourced. Locally crafted.
               </h2>
-              <p>
+              <p className="text-sm md:text-base">
                 Cupped, tested, developed and roasted at our Coffee Lab right
                 here in South London.
               </p>
@@ -299,14 +299,12 @@ const ProductDetail = () => {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
             className="flex items-start gap-2"
           >
-            <div className="">
-              <IconTwo size={100} />
-            </div>
+            <IconTwo size={100} />
             <div>
-              <h2 className="font-custom text-2xl font-bold">
+              <h2 className="font-custom text-xl font-bold md:text-2xl">
                 Modern Coffee. Holistic approach.
               </h2>
-              <p>
+              <p className="text-sm md:text-base">
                 It encapsulates the attention to detail, creativity, and focus
                 on provenance and quality.
               </p>
@@ -319,14 +317,12 @@ const ProductDetail = () => {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
             className="flex items-start gap-2"
           >
-            <div className="">
-              <IconThree size={100} />
-            </div>
+            <IconThree size={100} />
             <div>
-              <h2 className="font-custom text-2xl font-bold">
+              <h2 className="font-custom text-xl font-bold md:text-2xl">
                 No two Houses the same.
               </h2>
-              <p>
+              <p className="text-sm md:text-base">
                 Each of our locations are designed to play a contemporary role
                 in the Modern Coffee experience.
               </p>

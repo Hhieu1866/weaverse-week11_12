@@ -7,6 +7,7 @@ import {
 import { useCartStore } from "@/stores/cart";
 import { Separator } from "../ui/separator";
 import FancyButton from "../ui/FancyButton";
+import { Link } from "react-router-dom";
 
 export function CartDrawer() {
   const { isCartOpen, closeCart, items, total } = useCartStore();
@@ -51,15 +52,17 @@ export function CartDrawer() {
               <h3 className="text-sm uppercase tracking-widest">
                 Total: £{total.toFixed(2)}
               </h3>
-              <FancyButton
-                className="mt-10 w-full border border-black"
-                bgColor="bg-black"
-                textColor="text-white"
-                hoverBgColor="bg-main"
-                hoverTextColor="text-black"
-              >
-                GO TO CHECKOUT
-              </FancyButton>
+              <Link to="/cart">
+                <FancyButton
+                  className="mt-10 w-full border border-black"
+                  bgColor="bg-black"
+                  textColor="text-white"
+                  hoverBgColor="bg-main"
+                  hoverTextColor="text-black"
+                >
+                  GO TO CART
+                </FancyButton>
+              </Link>
             </div>
           )}
         </div>

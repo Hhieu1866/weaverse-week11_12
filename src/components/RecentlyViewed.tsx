@@ -11,65 +11,69 @@ const RecentlyViewed = () => {
     const el = scrollerRef.current;
     if (!el) return;
 
-    const scrollAmount = el.firstElementChild?.clientWidth || 0;
+    const firstCard = el.firstElementChild as HTMLElement | null;
+    const cardWidth = firstCard?.getBoundingClientRect().width ?? 0;
+
+    // include gap between cards
+    const styles = getComputedStyle(el);
+    const gapStr = (styles.columnGap || styles.gap || "0").toString();
+    const gap = parseFloat(gapStr) || 0;
+
+    const amount = cardWidth + gap;
 
     if (direction === "next") {
       if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 1) {
         el.scrollTo({ left: 0, behavior: "smooth" });
       } else {
-        el.scrollBy({ left: scrollAmount, behavior: "smooth" });
+        el.scrollBy({ left: amount, behavior: "smooth" });
       }
     } else {
-      if (el.scrollLeft === 0) {
+      if (el.scrollLeft <= 0) {
         el.scrollTo({ left: el.scrollWidth, behavior: "smooth" });
       } else {
-        el.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+        el.scrollBy({ left: -amount, behavior: "smooth" });
       }
     }
   };
 
-  if (recentlyViewedItems.length === 0) {
-    return null;
-  }
+  if (recentlyViewedItems.length === 0) return null;
 
   return (
     <div className="bg-main">
-      <div className="container mx-auto px-20 py-32">
+      <div className="container mx-auto px-4 py-16 md:px-20 md:py-32">
         <div className="flex items-center justify-between">
-          <h1 className="font-custom text-6xl font-bold">
+          <h1 className="font-custom text-3xl font-bold sm:text-4xl md:text-6xl">
             Recently Viewed
           </h1>
         </div>
 
-        <div className="mt-14 overflow-hidden">
+        <div className="mt-8 overflow-hidden md:mt-14">
           <div
             ref={scrollerRef}
-            className="no-scrollbar flex gap-8 overflow-x-auto pb-2 transition-transform duration-300"
-            style={{
-              scrollSnapType: "x mandatory",
-            }}
+            className="no-scrollbar -mx-1 flex snap-x snap-mandatory gap-6 overflow-x-auto px-1 pb-2 md:gap-8"
           >
             {recentlyViewedItems.map((item) => (
               <Link
                 to={`/products/${item.id}`}
                 key={item.id}
-                className="flex-shrink-0 text-center"
-                style={{
-                  width: "calc((100% - 4rem) / 3)",
-                  scrollSnapAlign: "start",
-                }}
+                className="w-[85%] shrink-0 snap-start text-center sm:w-[70%] md:w-auto md:basis-[calc((100%-4rem)/3)]"
               >
-                <img src={item.img} alt={item.name} />
-                <div className="mt-4 flex flex-col gap-2 p-4">
-                  <p className="font-custom text-lg font-bold">{item.name}</p>
-                  <p className="font-semibold">{item.price}</p>
+                <img src={item.img} alt={item.name} className="mx-auto" />
+                <div className="mt-4 flex flex-col gap-2 p-2 sm:p-4">
+                  <p className="font-custom text-base font-bold sm:text-lg">
+                    {item.name}
+                  </p>
+                  <p className="text-sm font-semibold sm:text-base">
+                    {item.price}
+                  </p>
                 </div>
               </Link>
             ))}
           </div>
         </div>
 
-        <div className="mt-10 flex items-center justify-center gap-2">
+        {/* Nav buttons: ẩn trên mobile, giữ desktop */}
+        <div className="mt-6 hidden items-center justify-center gap-2 md:mt-10 md:flex">
           <button
             type="button"
             onClick={() => scroll("prev")}
