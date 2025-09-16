@@ -66,7 +66,7 @@ const Checkout = () => {
                     </Button>
                     <Button className="h-12 flex-1 bg-gray-200 hover:bg-gray-300">
                       <img
-                        src="/ggpay.png"
+                        src="/ggpay.webp"
                         alt="Google Pay"
                         className="h-6 w-auto"
                       />

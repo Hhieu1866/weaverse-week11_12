@@ -15,7 +15,7 @@ import { Toaster } from "sonner";
 export default function App() {
   return (
     <BrowserRouter>
-      <ScrollToTop /> {/* Thêm component này */}
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

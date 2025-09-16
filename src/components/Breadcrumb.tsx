@@ -38,11 +38,9 @@ export default function BreadcrumbNav() {
       return "Order Confirmation";
     }
 
-    // Default: capitalize first letter
     return path.charAt(0).toUpperCase() + path.slice(1);
   };
 
-  // Don't show breadcrumb on home page
   if (location.pathname === "/") return null;
 
   return (
