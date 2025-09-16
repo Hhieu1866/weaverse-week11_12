@@ -66,21 +66,21 @@ export default function Header() {
                       Coffee
                     </Link>
                     <Link
-                      to="/collections/merch"
+                      to="#"
                       className="after:ease-[cubic-bezier(0.65_0.05_0.36_1)] relative block font-custom text-xl font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:w-full after:origin-bottom after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 hover:after:origin-bottom hover:after:scale-x-100"
                       onClick={handleNavClick}
                     >
                       Matcha
                     </Link>
                     <Link
-                      to="/collections/merch"
+                      to="#"
                       className="after:ease-[cubic-bezier(0.65_0.05_0.36_1)] relative block font-custom text-xl font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:w-full after:origin-bottom after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 hover:after:origin-bottom hover:after:scale-x-100"
                       onClick={handleNavClick}
                     >
                       Bundles
                     </Link>
                     <Link
-                      to="/collections/coffee"
+                      to="#"
                       className="after:ease-[cubic-bezier(0.65_0.05_0.36_1)] relative block font-custom text-xl font-bold after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:w-full after:origin-bottom after:scale-x-0 after:bg-neutral-800 after:transition-transform after:duration-300 hover:after:origin-bottom hover:after:scale-x-100"
                       onClick={handleNavClick}
                     >
@@ -104,8 +104,8 @@ export default function Header() {
                   About.
                 </Link>
                 <Link
-                  to="/about"
-                  className="block text-lg font-semibold"
+                  to="#"
+                  className="block cursor-not-allowed text-lg font-semibold"
                   onClick={handleNavClick}
                 >
                   Visit us.

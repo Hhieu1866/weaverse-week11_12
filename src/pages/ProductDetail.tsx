@@ -235,7 +235,10 @@ const ProductDetail = () => {
               </p>
               <div className="flex items-center justify-between gap-2 rounded-2xl bg-[#efd9c0c0] p-3">
                 <div className="max-w-28">
-                  <img src="/public/MonowareMug_BOTTOM_ALIGNED.webp" alt="" />
+                  <img
+                    src="/MonowareMug_BOTTOM_ALIGNED.webp"
+                    alt="MonowareMug_BOTTOM_ALIGNED"
+                  />
                 </div>
                 <div className="flex w-full flex-col items-start gap-1">
                   <p className="font-custom text-lg font-bold">
